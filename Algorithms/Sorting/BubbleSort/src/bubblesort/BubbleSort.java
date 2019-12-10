@@ -10,6 +10,8 @@ public class BubbleSort
         System.out.println(Arrays.toString(unsortedArray));
         bubbleSort(unsortedArray);
         System.out.println(Arrays.toString(unsortedArray));
+        reverseBubbleSort(unsortedArray);
+        System.out.println(Arrays.toString(unsortedArray));
     }
     
     public static void bubbleSort(int[] array)
@@ -23,6 +25,24 @@ public class BubbleSort
                     int temp = array[j];
                     array[j] = array[j+1];
                     array[j+1] = temp;
+                }
+            }
+        }
+    }
+    
+    // This function uses the Bubble Sort algorithm to sort the numbers in the 
+    // array in decreasing order.
+    public static void reverseBubbleSort(int[] array)
+    {
+        for(int i = array.length-1; i > 0; i--)
+        {
+            for(int j = 0; j < i; j++)
+            {
+                if(array[j] < array[j+1])
+                {
+                    int temp = array[j+1];
+                    array[j+1] = array[j];
+                    array[j] = temp;
                 }
             }
         }
