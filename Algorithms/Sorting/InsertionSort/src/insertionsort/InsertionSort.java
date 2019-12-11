@@ -22,6 +22,8 @@ public class InsertionSort {
         System.out.println(Arrays.toString(unsortedArray));
         insertionSort(unsortedArray);
         System.out.println(Arrays.toString(unsortedArray));
+        reverseInsertionSort(unsortedArray);
+        System.out.println(Arrays.toString(unsortedArray));
     }
     
     public static void insertionSort(int array[])
@@ -51,6 +53,26 @@ public class InsertionSort {
             }
             // Once we are done with the loop, the position that the loop left off at
             // is the correct position for the unsorted element.
+            array[j] = temp;
+        }
+    }
+    
+    // This function sorts the array in decreasing order
+    public static void reverseInsertionSort(int[] array)
+    { 
+        for(int i = 1; i < array.length; i++)
+        {
+            int temp = array[i];
+            int j;
+            
+            for(j = i; j > 0; j--)
+            {
+                if(array[j-1] < temp)
+                    array[j] = array[j-1];
+                
+                else
+                    break;
+            }
             array[j] = temp;
         }
     }
