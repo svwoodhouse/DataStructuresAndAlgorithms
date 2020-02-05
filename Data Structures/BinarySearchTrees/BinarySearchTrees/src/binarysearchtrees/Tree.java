@@ -17,6 +17,11 @@ public class Tree {
             root.traverseInOrder();
     }
     
+        public void traversePreorder() {
+        if(root!=null)
+            root.traversePreorder();
+    }
+    
     public int min() {
         if(root == null)
             return Integer.MIN_VALUE;

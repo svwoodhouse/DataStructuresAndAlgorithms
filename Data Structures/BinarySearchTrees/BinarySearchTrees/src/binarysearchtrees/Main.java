@@ -14,7 +14,9 @@ public class Main {
         intTree.insert(22);
         intTree.insert(32);
         intTree.insert(17);
-        
+    
+        intTree.traversePreorder();
+        /*
         intTree.traverseInOrder();
         System.out.println("");
       
@@ -31,6 +33,7 @@ public class Main {
        
         intTree.traverseInOrder();
         System.out.println("");
+*/
     }
     
 }
