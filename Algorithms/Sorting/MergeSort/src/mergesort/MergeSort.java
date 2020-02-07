@@ -10,6 +10,8 @@ public class MergeSort
         System.out.println(Arrays.toString(unsortedArray));
         mergeSort(unsortedArray, 0, unsortedArray.length);
         System.out.println(Arrays.toString(unsortedArray));
+        descendMergeSort(unsortedArray, 0, unsortedArray.length);
+        System.out.println(Arrays.toString(unsortedArray));
     }
     
     // This function divides the array into a right and left partitions until it 
@@ -47,6 +49,37 @@ public class MergeSort
         while(i < middle && j < end)
         {
             tempArray[tempIndex++] = array[i] <= array[j] ? array[i++] : array[j++];
+        }
+        
+       
+        System.arraycopy(array, i, array, start + tempIndex, middle - i);
+        System.arraycopy(tempArray, 0, array, start, tempIndex);
+    }
+    
+    public static void descendMergeSort(int array[], int start, int end)
+    {
+        if(end - start < 2)
+            return;
+        
+        int middle = (start + end) / 2;
+        descendMergeSort(array, start, middle);
+        descendMergeSort(array, middle, end);
+        descendMerge(array, start, middle, end);
+    }
+    
+    public static void descendMerge(int array[], int start, int middle, int end )
+    {
+        if(array[middle - 1] >= array[middle])
+            return;
+        
+        int i = start;
+        int j = middle;
+        int tempIndex = 0;
+        int tempArray[] = new int[end-start];
+
+        while(i < middle && j < end)
+        {
+            tempArray[tempIndex++] = array[i] >= array[j] ? array[i++] : array[j++];
         }
         
        
