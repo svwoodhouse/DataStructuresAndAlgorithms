@@ -76,9 +76,19 @@ public class SimpleHashTable {
         if(hashedKey == -1){
             return null;
         }
+    
         Employee employee = hashtable[hashedKey].employee;
         hashtable[hashedKey] = null;
-        return employee;
+
+    
+        StoredEmployee[] oldHashTable = hashtable;
+        hashtable = new StoredEmployee[oldHashTable.length];
+        for(int i = 0; i < oldHashTable.length; i++) {
+            if(oldHashTable[i] != null) {
+                put(oldHashTable[i].key, oldHashTable[i].employee);
+            }
+        }
+            return employee;
     }
     
     public void printHashTable() {

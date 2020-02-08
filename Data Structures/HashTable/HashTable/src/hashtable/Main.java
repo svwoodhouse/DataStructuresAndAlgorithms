@@ -17,11 +17,10 @@ public class Main {
        ht.printHashTable();
        
        System.out.println("Retrieve key Wilson: " + ht.get("Wilson"));
-       System.out.println("Retrieve key Wilson: " + ht.get("Smith"));
+       System.out.println("Retrieve key Smith: " + ht.get("Smith"));
        
        ht.remove("Wilson");
        ht.remove("Jones");
-       
        ht.printHashTable();
     }  
 }
