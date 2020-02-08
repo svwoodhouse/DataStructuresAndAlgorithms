@@ -1,28 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package insertionsort;
 
 import java.util.Arrays;
 
-/**
- *
- * @author Sydnee
- */
 public class InsertionSort {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args)
     {
         int unsortedArray[] = new int[]{20,35,-15,7,55,1,-22};
+        //System.out.println(Arrays.toString(unsortedArray));
+       // insertionSort(unsortedArray);
+       // System.out.println(Arrays.toString(unsortedArray));
+       // reverseInsertionSort(unsortedArray);
         System.out.println(Arrays.toString(unsortedArray));
-        insertionSort(unsortedArray);
-        System.out.println(Arrays.toString(unsortedArray));
-        reverseInsertionSort(unsortedArray);
+        recursiveInsertionSort(unsortedArray, unsortedArray.length);
         System.out.println(Arrays.toString(unsortedArray));
     }
     
@@ -75,6 +64,31 @@ public class InsertionSort {
             }
             array[j] = temp;
         }
+    }
+    
+    // This function recursively sorts the array using insertion sort
+    public static void recursiveInsertionSort(int[] array, int position)
+    {
+        if(position <= 1)
+            return;
+        
+        // Sort first n-1 elements 
+        recursiveInsertionSort(array, position-1 ); 
+       
+        // Insert last element at its correct position 
+        // in sorted array. 
+        int last = array[position-1]; 
+        int j = position-2; 
+       
+        /* Move elements of arr[0..i-1], that are 
+          greater than key, to one position ahead 
+          of their current position */
+        while (j >= 0 && array[j] > last) 
+        { 
+            array[j+1] = array[j]; 
+            j--; 
+        } 
+        array[j+1] = last; 
     }
     
 }
