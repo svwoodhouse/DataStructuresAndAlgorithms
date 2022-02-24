@@ -8,6 +8,7 @@ public class LinkedListExample
         list.createNode(2);
         list.createNode(43);
         list.createNode(64);
+        list.printNodes();
         list.createNode(1);
         list.createNode(23);
         
